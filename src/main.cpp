@@ -29,6 +29,7 @@
 #include <fstream>
 #include <iomanip>
 #include <memory>
+#include <string>
 
 void printVersion() {
     printf("Vulkan Shader Binary Converter 1.1\n");
