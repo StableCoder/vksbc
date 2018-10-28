@@ -1,8 +1,8 @@
 # Vulkan Binary Converter
 
-[![pipeline status](http://git.stabletec.com/utilities/vksbc/badges/master/pipeline.svg)](http://git.stabletec.com/utilities/vksbc/commits/master)
+[![pipeline status](https://git.stabletec.com/utilities/vksbc/badges/master/pipeline.svg)](https://git.stabletec.com/utilities/vksbc/commits/master)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://git.stabletec.com/utilities/vksbc/blob/master/LICENSE)
-![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/stablecoder/vksbc.svg)
+[![GitHub tag](https://img.shields.io/github/tag/stablecoder/vksbc.svg)](https://git.stabletec.com/utilities/vksbc/commits/master)
 
 This program is used to convert a SPIR-V binary code file into a set of hexadecimal 4-byte values that can be pasted as an array on unsigned integers in code and used.
 
