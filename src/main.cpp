@@ -60,7 +60,7 @@ int main(int argc, char **argv) {
     // Exit if no parameters given.
     if (argc < 2) {
         printf("vksbc error: no file given.\n");
-        return 0;
+        return 1;
     }
 
     for (int i = 0; i < argc; ++i) {
@@ -85,7 +85,7 @@ int main(int argc, char **argv) {
     FILE *fp = fopen(argv[argc - 1], "rb");
     if (!fp) {
         printf("vksbc error: could not open shader file: %s\n", argv[1]);
-        return 0;
+        return 1;
     }
 
     // Generate the output file name if necessary
@@ -103,11 +103,11 @@ int main(int argc, char **argv) {
     unsigned int byteSize = static_cast<unsigned int>(ftell(fp));
     if (byteSize == 0) {
         printf("vksbc error: File is empty.\n");
-        return 0;
+        return 1;
     }
     if (byteSize % 4 != 0) {
         printf("vksbc error: file content is not multiple of 4.\n");
-        return 0;
+        return 1;
     }
 
     // Read the data in.
@@ -115,7 +115,7 @@ int main(int argc, char **argv) {
     std::unique_ptr<uint32_t[]> data(new uint32_t[byteSize / 4]);
     if (fread(data.get(), byteSize, 1, fp) != 1) {
         printf("vksbc error: couldn't read file.\n");
-        return 0;
+        return 1;
     }
     // Close the file
     fclose(fp);
