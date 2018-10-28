@@ -1,5 +1,8 @@
 # Vulkan Binary Converter
 
+[![pipeline status](http://git.stabletec.com/utilities/vksbc/badges/master/pipeline.svg)](http://git.stabletec.com/utilities/vksbc/commits/master)
+[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://git.stabletec.com/utilities/vksbc/blob/master/LICENSE)
+
 This program is used to convert a SPIR-V binary code file into a set of hexadecimal 4-byte values that can be pasted as an array on unsigned integers in code and used.
 
 This is meant mostly for embedding non-changing shaders directly into code, mostly for testing purposes.
@@ -59,14 +62,13 @@ Usage of such a header can be as simple as
 
 ...
 
-vk::ShaderModuleCreateInfo moduleCI;
-moduleCI.pCode = fragmentBinary;
-moduleCI.codeSize = sizeof(fragmentBinary);
+VkShaderModuleCreateInfo moduleCI = {};
+moduleCI.sType = VK_STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO;
+moduleCI.pCode = fragShader.data();
+moduleCI.codeSize = fragShader.size() * sizeof(uint32_t);
 
-vk::ShaderModule shaderModule;
-m_device.createShaderModule(&moduleCI,
-                            nullptr,
-                            &shaderModule);
+VkShaderModule shaderModule;
+vkCreateShaderModule(device, &moduleCI, nullptr, &shaderModule);
 ```
 
 And it should be ready to be used in the creation of Vulkan shaders in the program.
