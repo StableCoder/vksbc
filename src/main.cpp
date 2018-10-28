@@ -138,7 +138,8 @@ int main(int argc, char **argv) {
             varName = varName.substr(lastSlash + 1);
         std::replace(varName.begin(), varName.end(), '.', '_');
 
-        cOut << "static uint32_t vk_" << varName << "[] = {\n    ";
+        cOut << "static const uint32_t vk_" << varName << "_size = " << byteSize << ";\n";
+        cOut << "static const uint32_t vk_" << varName << "[] = {\n    ";
     }
     if (cppHeader) {
         cppOut.open(outFileName + ".hpp", std::ofstream::out);
@@ -155,6 +156,7 @@ int main(int argc, char **argv) {
             varName = varName.substr(lastSlash + 1);
         std::replace(varName.begin(), varName.end(), '.', '_');
 
+        cppOut << "constexpr uint32_t vk_" << varName << "_size = " << byteSize << ";\n";
         cppOut << "constexpr std::array<uint32_t, " << (byteSize / 4) << "> vk_" << varName
                << " = {\n    ";
     }
