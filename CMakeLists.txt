@@ -9,4 +9,4 @@ include(cmake/tools.cmake)
 cxx_11()
 
 add_executable(vksbc src/main.cpp)
-target_code_coverage(vksbc AUTO)
+target_code_coverage(vksbc)
