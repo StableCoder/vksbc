@@ -39,56 +39,56 @@ variables:
     - ninja
 
 Fedora/GCC:
-  image: stabletec/build-core:fedora-gcc
+  image: stabletec/build-core:fedora
   variables:
     CC: gcc
     CXX: g++
   <<: *platform_unix_template
 
 Fedora/Clang:
-  image: stabletec/build-core:fedora-clang
+  image: stabletec/build-core:fedora
   variables:
     CC: clang
     CXX: clang++
   <<: *platform_unix_template
 
 Debian/GCC:
-  image: stabletec/build-core:debian-gcc
+  image: stabletec/build-core:debian
   variables:
     CC: gcc
     CXX: g++
   <<: *platform_unix_template
 
 Debian/Clang:
-  image: stabletec/build-core:debian-clang
+  image: stabletec/build-core:debian
   variables:
     CC: clang
     CXX: clang++
   <<: *platform_unix_template
 
 Ubuntu/GCC:
-  image: stabletec/build-core:ubuntu-gcc
+  image: stabletec/build-core:ubuntu
   variables:
     CC: gcc
     CXX: g++
   <<: *platform_unix_template
 
 Ubuntu/Clang:
-  image: stabletec/build-core:ubuntu-clang
+  image: stabletec/build-core:ubuntu
   variables:
     CC: clang
     CXX: clang++
   <<: *platform_unix_template
 
 openSUSE/GCC:
-  image: stabletec/build-core:opensuse-gcc
+  image: stabletec/build-core:opensuse
   variables:
     CC: gcc
     CXX: g++
   <<: *platform_unix_template
 
 openSUSE/Clang:
-  image: stabletec/build-core:opensuse-clang
+  image: stabletec/build-core:opensuse
   variables:
     CC: clang
     CXX: clang++
@@ -113,7 +113,7 @@ macOS/Clang:
 
 .analysis_template: &analysis_template
   stage: Analysis
-  image: stabletec/build-foe:fedora-clang
+  image: stabletec/build-foe:fedora
   allow_failure: true
   tags:
     - docker-linux
